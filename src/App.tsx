@@ -1,16 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AppLayout from './layouts/AppLayout';
+import PrivateRoutes from './Routes/Routes';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/dashboard" component={Home} />
-      </Switch>
-    </Router>
+    <div className="App">
+      <AppLayout>
+        <PrivateRoutes />
+        <ToastContainer
+          position="top-right"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </AppLayout>
+    </div>
   );
 }
 
