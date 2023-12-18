@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# NewsApp Frontend - React TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the frontend application of NewsApp! This React TypeScript app complements the NewsApp Laravel backend by providing a user-friendly interface for viewing articles from various sources.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you begin, ensure that you have the following software installed on your machine:
 
-### `npm start`
+- Node.js: [Install Node.js](https://nodejs.org/)
+- npm: [Install npm](https://www.npmjs.com/get-npm)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Running the App
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Without Docker
 
-### `npm test`
+To run the app without Docker, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository to your local machine.
 
-### `npm run build`
+2. Install the necessary dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Configure the backend API URL by updating the `.env` file or environment variables.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the development server:
 
-### `npm run eject`
+    ```bash
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### With Docker
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the app with Docker, ensure you have Docker installed on your machine, and then follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone this repository to your local machine.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Build the Docker image using the provided Dockerfile:
 
-## Learn More
+    ```bash
+    docker build -t newsapp-frontend .
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Run the Docker container:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    docker run -p 3000:3000 newsapp-frontend
+    ```
+
+4. Access the application in your web browser at `http://localhost:3000`.
+
+## Usage
+
+Explore the NewsApp frontend to view and interact with articles from different sources. The interface is designed to provide a seamless experience in discovering the latest news.
+
+## Contributing
+
+If you would like to contribute to the development of this NewsApp frontend, please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+## License
+
+This NewsApp frontend is open-source software licensed under the [MIT License](LICENSE).
+
+Feel free to reach out with any questions or feedback!
