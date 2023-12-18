@@ -1,4 +1,4 @@
-import { LOGIN, SET_LOADING, LOGOUT, UPDATE_USER_PROFILE, RESET_NEWS_STATE, LoginFormValues, RegisterFormValues } from '../types/actionTypes';
+import { LOGIN, SET_LOADING, LOGOUT, UPDATE_USER_PROFILE, RESET_NEWS_STATE, LoginFormValues, RegisterFormValues, UserPreferencesType } from '../types/actionTypes';
 import axios from 'axios';
 import configData from '../../../config.json';
 import { toast } from 'react-toastify';
@@ -73,25 +73,26 @@ export const register = (values: RegisterFormValues) => {
 //   };
 // };
 
-// export const updateUserPrefrences = (values) => {
-//   return async (dispatch) => {
-//     try {
-//       dispatch({ type: SET_LOADING, payload: true });
-//       const res = await axios.put(`${UPDATE_USER_PREFRENCES_URL}`, values).then((res) => res.data);
-//       if (res) {
-//         await dispatch({ type: UPDATE_USER_PROFILE, payload: res });
-//         await dispatch({ type: SET_LOADING, payload: false });
-//         await toast.success('Success! News Prefrences updated');
-//         return true;
-//       }
-//     } catch (e) {
-//       const error = await e.response.data.message;
-//       toast.error(`Error! ${error}`);
-//       dispatch({ type: SET_LOADING, payload: false });
-//       return false;
-//     }
-//   };
-// };
+
+export const updateUserPreferences = (values: UserPreferencesType) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch({ type: SET_LOADING, payload: true });
+      const res = await axios.put(UPDATE_USER_PREFERENCES_URL, values).then((res) => res.data);
+      if (res) {
+        await dispatch({ type: UPDATE_USER_PROFILE, payload: res });
+        await dispatch({ type: SET_LOADING, payload: false });
+        toast.success('Success! News Preferences updated');
+        return true;
+      }
+    } catch (e: any) {
+      const error = (await e.response?.data?.message) || 'An error occurred';
+      toast.error(`Error! ${error}`);
+      dispatch({ type: SET_LOADING, payload: false });
+      return false;
+    }
+  };
+};
 
 export const logout = () => {
   return async (dispatch: Dispatch) => {

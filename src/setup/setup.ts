@@ -8,6 +8,7 @@ export default function setupAxios(axios: AxiosInstance, store: Store<RootState>
       const {
         auth: { accessToken },
       } = store.getState();
+        console.log(accessToken);
 
       if (accessToken) {
         config.headers.Authorization = `Bearer ${accessToken}`;

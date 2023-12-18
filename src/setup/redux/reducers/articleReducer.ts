@@ -1,15 +1,4 @@
-interface ArticleState {
-  articleList: any[];
-  articleDetail: any;
-  pagination: {
-    currentPage: number;
-    itemsPerPage: number;
-    lastPage: number;
-  };
-  categories: any[];
-  sources: any[];
-  authors: any[];
-}
+import { ArticleState } from "../types/actionTypes";
 
 const initialState: ArticleState = {
   articleList: [],

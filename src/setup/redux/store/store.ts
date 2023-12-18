@@ -13,7 +13,8 @@ const persistConfig = {
 };
 
 
-const persistedReducer = persistReducer<RootState, any>(persistConfig, rootReducer);
+// @ts-ignore
+const persistedReducer = persistReducer<RootState, any>(persistConfig, rootReducer); 
 
 const store = createStore(persistedReducer, applyMiddleware(thunk, logger));
 

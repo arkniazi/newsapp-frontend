@@ -38,12 +38,51 @@ export interface ArticleState {
   authors: any[];
 }
 
+export interface UiState {
+  loading: boolean;
+}
 
 export interface RootState {
   auth: AuthState;
   article: ArticleState;
+  ui: UiState
 }
 
+
+export interface UserPreferencesType {
+  favorite_sources: string[];
+  favorite_categories: string[];
+  favorite_authors: string[];
+}
+
+
+export interface ArticleState {
+  articleList: any[];
+  articleDetail: any;
+  pagination: {
+    currentPage: number;
+    itemsPerPage: number;
+    lastPage: number;
+  };
+  categories: any[];
+  sources: any[];
+  authors: any[];
+}
+
+export interface SelectOptionType {
+  label: string;
+  value: string;
+}
+
+export interface UserPreferencesProps {
+  user: any;
+  categories: any[];
+  sources: any[];
+  authors: string[];
+  loading: boolean;
+  updateUserPreferences: (values: any) => void;
+  getArticleMeta: (params: { type: string }) => void;
+}
 
 // -------- Form Values 
 export interface LoginFormValues {

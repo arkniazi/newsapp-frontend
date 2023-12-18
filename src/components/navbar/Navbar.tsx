@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onLogout }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/user-preference">
+                <Link className="nav-link" to="/user-preferences">
                   User Preference
                 </Link>
               </li>
