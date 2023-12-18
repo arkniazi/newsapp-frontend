@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import Home from "../pages/Home";
 import { Login } from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
-import UserPreferences from "../pages/user/Preference";
+import UserPreferences from '../pages/user/Preference';
+import UserProfile from '../pages/user/Profile';
 // import Home from "../pages/home/Home";
 // import { Login } from "../pages/auth/Login";
 
@@ -14,7 +15,8 @@ const PrivateRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/user-preferences" element={isAuthorized ? <UserPreferences /> : <Navigate to="/login" replace={true} />} />
+      <Route path="/preferences" element={isAuthorized ? <UserPreferences /> : <Navigate to="/login" replace={true} />} />
+      <Route path="/profile" element={isAuthorized ? <UserProfile /> : <Navigate to="/login" replace={true} />} />
       {/* <Route
         path="/profile"
         element={

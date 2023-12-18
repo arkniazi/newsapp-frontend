@@ -48,13 +48,11 @@ export interface RootState {
   ui: UiState
 }
 
-
 export interface UserPreferencesType {
   favorite_sources: string[];
   favorite_categories: string[];
   favorite_authors: string[];
 }
-
 
 export interface ArticleState {
   articleList: any[];
@@ -95,4 +93,12 @@ export interface RegisterFormValues {
   email: string;
   password: string;
   password_confirmation: string;
+}
+
+export interface UpdateProfileValues {
+  name: string;
+  email: string;
+  current_password: string;
+  new_password: string;
+  confirm_new_password: string;
 }
