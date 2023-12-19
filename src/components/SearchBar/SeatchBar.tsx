@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { VscSettings } from 'react-icons/vsc';
-// import styles from './home.module.css';
+import styled from 'styled-components';
 
 interface SearchBarProps {
   searchTerm: string;
@@ -10,14 +10,31 @@ interface SearchBarProps {
   setShowFilterModal: (show: boolean) => void;
 }
 
+const ButtonStyled = styled.button`
+  border-color: #d95f5f;
+  color: #d95f5f;
+  border-radius:0;
+  &:hover {
+    border-color: #d95f5f;
+    background: #d95f5f;
+    color: #fff;
+  }
+`;
+
+const FormGroupStyled = styled(Form.Group)`
+  .form-control {
+    border-radius: 0;
+  }
+`;
+
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, handleSearch, setShowFilterModal }) => (
   <div className={`w-100 d-flex flex-column flex-md-row justify-content-center mb-4`}>
-    <Form.Group className={`mb-3 mb-md-0 {styles.searchBar}`}>
+    <FormGroupStyled>
       <Form.Control type="text" placeholder="Search News..." value={searchTerm} onChange={handleSearch} />
-    </Form.Group>
-    <Button variant="outline-primary" onClick={() => setShowFilterModal(true)}>
+    </FormGroupStyled>
+    <ButtonStyled className="btn" onClick={() => setShowFilterModal(true)}>
       <VscSettings size={20} style={{ cursor: 'pointer' }} /> Search
-    </Button>
+    </ButtonStyled>
   </div>
 );
 

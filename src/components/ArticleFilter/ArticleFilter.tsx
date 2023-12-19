@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import { Formik, Form, FormikState } from 'formik';
 import ReactSelect from '../common/ReactSelect/ReactSelect';
 import { ArticleFilterValues } from '../../setup/redux/types/actionTypes';
-// import { ReactSelect, Option } from './ReactSelect';
 
 interface Option {
   value: any,

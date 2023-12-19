@@ -17,7 +17,6 @@ const UserProfile = ({ user, updateUserProfile, loading }) => {
     confirm_new_password: Yup.string().oneOf([Yup.ref('new_password')], 'New Password must match'),
   });
 
-  console.log(user);
   const initialValues = {
     name: user?.name,
     email: user?.email,

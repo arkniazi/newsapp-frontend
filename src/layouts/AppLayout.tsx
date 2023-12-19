@@ -18,11 +18,9 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, isAuthenticated, user, 
   };
 
   return (
-    <div className="bg-primary-subtle pb-5 min-vh-100">
-      {/* <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} user={user} /> */}
+    <div className="pb-5 min-vh-100">
       <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-
-      <div>{children}</div>
+      <div className='mt-5'>{children}</div>
     </div>
   );
 };

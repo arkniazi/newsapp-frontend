@@ -5,7 +5,7 @@ const initialState: ArticleState = {
   articleDetail: {},
   pagination: {
     currentPage: 1,
-    itemsPerPage: 15,
+    itemsPerPage: 1,
     lastPage: 1,
   },
   categories: [],

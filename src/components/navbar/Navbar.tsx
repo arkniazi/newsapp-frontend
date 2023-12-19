@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 interface NavbarProps {
   isAuthenticated: boolean;
   onLogout: () => void; 
 }
 
+const NavbarStyled = styled.nav`
+  padding-left: 100px;
+  padding-right: 100px;
+`;
+
 const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onLogout }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light pr-3 ml-3">
+    <NavbarStyled className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
         Home
       </Link>
@@ -49,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onLogout }) => {
           )}
         </ul>
       </div>
-    </nav>
+    </NavbarStyled>
   );
 };
 
