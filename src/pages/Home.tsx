@@ -12,7 +12,6 @@ import { Author } from '../models/Author';
 import SearchBar from '../components/SearchBar/SeatchBar';
 import ArticleFilter from '../components/ArticleFilter/ArticleFilter';
 import { ArticleFilterValues } from '../setup/redux/types/actionTypes';
-import { PaginationLink, PaginationStyled } from './styled';
 import Pagination from '../components/Paginate/Pagination';
 
 interface HomeProps {

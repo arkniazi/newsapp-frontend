@@ -28,8 +28,8 @@ const ReactSelect: React.FC<FormikSelectProps> = ({
   className,
   placeholder = 'Select...',
 }) => {
-  const { setFieldValue, initialValues } = useFormikContext<any>();
-  const [field, meta, helpers] = useField(name);
+  const { setFieldValue } = useFormikContext<any>();
+  const [field, meta] = useField(name);
 
   const handleChange = (selectedOption: Option | readonly Option[] | null) => {
     if (isMulti && Array.isArray(selectedOption)) {
