@@ -7,7 +7,7 @@ import Register from "../pages/auth/Register";
 import UserPreferences from '../pages/user/Preference';
 import UserProfile from '../pages/user/Profile';
 import ArticleDetail from "../pages/article/ArticleDetail";
-const PrivateRoutes = () => {
+const AppRoutes = () => {
   const isAuthorized = useSelector(({ auth }) => auth.isAuthenticated);
 
   return (
@@ -43,4 +43,4 @@ const PrivateRoutes = () => {
   );
 };
 
-export default PrivateRoutes;
+export default AppRoutes;

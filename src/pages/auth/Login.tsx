@@ -1,4 +1,3 @@
-// components/LoginForm/LoginComponent.tsx
 import React from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { login } from '../../setup/redux/actions/authAction';

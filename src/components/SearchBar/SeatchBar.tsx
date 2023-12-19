@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { VscSettings } from 'react-icons/vsc';
 import styled from 'styled-components';
 

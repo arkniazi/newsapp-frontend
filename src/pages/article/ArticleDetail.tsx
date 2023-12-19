@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { MdOutlineKeyboardBackspace as BackArrow } from 'react-icons/md';
-// import styles from './home/home.module.css';
 import Loader from '../../components/Loader/Loader';
 import { RootState } from '../../setup/redux/types/actionTypes';
 import { getArticleDetail } from '../../setup/redux/actions/articleAction';

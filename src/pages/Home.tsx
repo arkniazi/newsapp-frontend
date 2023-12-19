@@ -88,7 +88,7 @@ const Home: React.FC<HomeProps> = ({
       <Loader loading={loading} />
       <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} setShowFilterModal={setShowFilterModal} />
 
-      <div className="container d-flex flex-wrap justify-content-between mb-5">
+      <div className="container flex-wrap justify-content-between mb-5">
         <div className="row">
           {articles?.length > 0 ? (
             articles.map((article) => (

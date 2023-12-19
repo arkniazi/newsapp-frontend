@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import AppLayout from './layouts/AppLayout';
-import PrivateRoutes from './Routes/Routes';
 import { ToastContainer } from 'react-toastify';
+import AppRoutes from './Routes/Routes';
 
 function App() {
   return (
     <div className="App">
       <AppLayout>
-        <PrivateRoutes />
+        <AppRoutes />
         <ToastContainer
           position="top-right"
           autoClose={2500}

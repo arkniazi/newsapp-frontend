@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { Dispatch } from 'redux';
 
 const API_URL = configData.SERVER_URL;
-// const API_URL = process.env.REACT_APP_SERVER_URL;
 export const LOGIN_URL = `${API_URL}/login`;
 export const LOGOUT_URL = `${API_URL}/logout`;
 export const REGISTER_URL = `${API_URL}/register`;
