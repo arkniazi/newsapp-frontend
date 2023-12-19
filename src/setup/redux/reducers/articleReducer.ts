@@ -1,7 +1,7 @@
 import { ArticleState } from "../types/actionTypes";
 
 const initialState: ArticleState = {
-  articleList: [],
+  articlesList: [],
   articleDetail: {},
   pagination: {
     currentPage: 1,
@@ -18,7 +18,7 @@ const articleReducer = (state: ArticleState = initialState, action: any) => {
     case 'GET_ALL_ARTICLES':
       return {
         ...state,
-        articleList: action.payload,
+        articlesList: action.payload,
       };
     case 'GET_ARTICLE_DETAIL':
       return {

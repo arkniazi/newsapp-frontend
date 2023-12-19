@@ -98,9 +98,9 @@ const UserPreferences: React.FC<UserPreferencesProps> = ({
 const mapStateToProps = (state: RootState) => {
   return {
     user: state.auth.user,
-    categories: state.article.categories,
-    sources: state.article.sources,
-    authors: state.article.authors,
+    categories: state.articles.categories,
+    sources: state.articles.sources,
+    authors: state.articles.authors,
     loading: state.ui? state.ui.loading : false,
   };
 };

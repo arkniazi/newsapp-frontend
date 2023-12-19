@@ -5,7 +5,7 @@ import uiReducer from './uiReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  article: articleReducer,
+  articles: articleReducer,
   ui: uiReducer
 });
 

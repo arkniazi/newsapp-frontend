@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { getAllArticles, getArticleMeta } from '../setup/redux/actions/articleAction';
 import ReactPaginate from 'react-paginate';
 import Loader from '../components/Loader/Loader';
-// import { SearchBar } from './SearchBar';
-// import ArticleFilter from '../../components/ArticleFilter';
 import ArticleCard from '../components/Card/ArticleCard';
 import { makeLabelOptions, makeOptions } from '../utils/helpers';
 import { Article } from '../models/Article';
@@ -13,6 +11,9 @@ import { Pagination } from '../models/Pagination';
 import { Category } from '../models/Category';
 import { Source } from '../models/Source';
 import { Author } from '../models/Author';
+import SearchBar from '../components/SearchBar/SeatchBar';
+import ArticleFilter from '../components/ArticleFilter/ArticleFilter';
+import { ArticleFilterValues } from '../setup/redux/types/actionTypes';
 
 interface HomeProps {
   articles: Article[];
@@ -37,14 +38,16 @@ const Home: React.FC<HomeProps> = ({
   isAuthorized,
   loading,
 }) => {
-  const { currentPage, itemsPerPage, lastPage } = pagination;
+  const { currentPage, itemsPerPage, lastPage } = pagination || {currentPage: 1, itemsPerPage:0, lastPage:1};
   const [searchTerm, setSearchTerm] = useState('');
   const [delayedSearch, setDelayedSearch] = useState<NodeJS.Timeout | null>(null);
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const [articleFilters, setArticleFilters] = useState(null);
+  const [articleFilters, setArticleFilters] = useState<ArticleFilterValues | null>(null);
   const authorOptions = makeLabelOptions(authors);
   const categoryOptions = makeOptions(categories);
   const sourceOptions = makeOptions(sources);
+
+  console.log(articles);
 
   useEffect(() => {
     getAllArticles(articleFilters);
@@ -75,13 +78,20 @@ const Home: React.FC<HomeProps> = ({
     }
   };
 
+  const initialArticleFilters: ArticleFilterValues = {
+    category_id: null,
+    source_id: null,
+    author_name: null,
+    date: '',
+  };
+
   return (
     <>
       <Loader loading={loading} />
-      {/* <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} setShowFilterModal={setShowFilterModal} /> */}
+      <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} setShowFilterModal={setShowFilterModal} />
 
       <div className="w-100 d-flex flex-wrap justify-content-between mb-5">
-        {articles.length > 0 ? (
+        {articles?.length > 0 ? (
           articles.map((article) => <ArticleCard key={article.id} article={article} />)
         ) : (
           <h3 className="mt-5 w-100 text-center text-muted">No articles available</h3>
@@ -104,29 +114,29 @@ const Home: React.FC<HomeProps> = ({
           forcePage={currentPage - 1}
         />
       )}
-{/* 
+
       <ArticleFilter
         show={showFilterModal}
         onHide={() => setShowFilterModal(false)}
-        categories={categoryOptions}
-        sources={sourceOptions}
-        authors={authorOptions}
-        filterValues={articleFilters}
+        categories={categoryOptions || []}
+        sources={sourceOptions || []}
+        authors={authorOptions || []}
+        filterValues={articleFilters || initialArticleFilters}
         onSubmit={(values) => {
           setArticleFilters(values);
           setShowFilterModal(false);
         }}
-      /> */}
+      />
     </>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  articles: state.articles.articlesList,
-  pagination: state.articles.pagination,
-  categories: state.articles.categories,
-  sources: state.articles.sources,
-  authors: state.articles.authors,
+  articles: state.articles?.articlesList,
+  pagination: state.articles?.pagination,
+  categories: state.articles?.categories,
+  sources: state.articles?.sources,
+  authors: state.articles?.authors,
   isAuthorized: state.auth.isAuthenticated,
   loading: state.ui.loading,
 });

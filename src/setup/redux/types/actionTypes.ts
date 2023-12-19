@@ -26,7 +26,7 @@ export interface AuthState {
 }
 
 export interface ArticleState {
-  articleList: any[];
+  articlesList: any[];
   articleDetail: any;
   pagination: {
     currentPage: number;
@@ -44,7 +44,7 @@ export interface UiState {
 
 export interface RootState {
   auth: AuthState;
-  article: ArticleState;
+  articles: ArticleState;
   ui: UiState
 }
 
@@ -55,7 +55,7 @@ export interface UserPreferencesType {
 }
 
 export interface ArticleState {
-  articleList: any[];
+  articlesList: any[];
   articleDetail: any;
   pagination: {
     currentPage: number;
@@ -80,6 +80,13 @@ export interface UserPreferencesProps {
   loading: boolean;
   updateUserPreferences: (values: any) => void;
   getArticleMeta: (params: { type: string }) => void;
+}
+
+export interface ArticleFilterValues {
+  category_id: string | null;
+  source_id: string | null;
+  author_name: string | null;
+  date: string;
 }
 
 // -------- Form Values 
