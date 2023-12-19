@@ -8,6 +8,7 @@ import Loader from '../../components/Loader/Loader';
 import { makeLabelOptions, makeOptions } from '../../utils/helpers';
 import { getArticleMeta } from '../../setup/redux/actions/articleAction';
 import { RootState, SelectOptionType, UserPreferencesProps, UserPreferencesType } from '../../setup/redux/types/actionTypes';
+import { FormContainer } from '../auth/styled';
 
 
 const UserPreferences: React.FC<UserPreferencesProps> = ({
@@ -43,52 +44,61 @@ const UserPreferences: React.FC<UserPreferencesProps> = ({
     <div className="container">
       <Loader loading={loading} />
       <div className="row justify-content-center align-items-center">
-        <div className="col-md-4 text-start">
-          <h2>Preferences</h2>
-          <p>Customize your article feed.</p>
-          <Formik initialValues={initialValues} onSubmit={onSubmit}>
-            {({ setFieldValue, values, resetForm }) => (
-              <Form>
-                <div className="mb-3">
-                  <ReactSelect
-                    name="favorite_categories"
-                    label="Favorite Categories"
-                    isSearchable
-                    isClearable
-                    isMulti
-                    options={categoryOptions}
-                  />
-                </div>
-                <div className="mb-3">
-                  <ReactSelect name="favorite_sources" label="Favorite Sources" isSearchable isClearable isMulti options={sourceOptions} />
-                </div>
-                <div className="mb-3">
-                  <ReactSelect
-                    name="favorite_authors"
-                    label="Favorite Authors"
-                    isSearchable
-                    isClearable
-                    isMulti
-                    options={authorOptions}
-                  />
-                </div>
-                <div className="d-flex flex-row justify-content-between">
-                  <Button type="submit" variant="primary">
-                    Save Preferences
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    onClick={() => {
-                      resetForm(initialValues as Partial<FormikState<UserPreferencesType>>);
-                    }}
-                  >
-                    Cancel
-                  </Button>
-                </div>
-              </Form>
-            )}
-          </Formik>
+        <div className="col-6 text-start">
+          <FormContainer>
+            <h2>Preferences</h2>
+            <p>Customize your article feed.</p>
+            <Formik initialValues={initialValues} onSubmit={onSubmit}>
+              {({ setFieldValue, values, resetForm }) => (
+                <Form>
+                  <div className="mb-3">
+                    <ReactSelect
+                      name="favorite_categories"
+                      label="Favorite Categories"
+                      isSearchable
+                      isClearable
+                      isMulti
+                      options={categoryOptions}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <ReactSelect
+                      name="favorite_sources"
+                      label="Favorite Sources"
+                      isSearchable
+                      isClearable
+                      isMulti
+                      options={sourceOptions}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <ReactSelect
+                      name="favorite_authors"
+                      label="Favorite Authors"
+                      isSearchable
+                      isClearable
+                      isMulti
+                      options={authorOptions}
+                    />
+                  </div>
+                  <div className="d-flex flex-row justify-content-between">
+                    <Button type="submit" variant="primary">
+                      Save Preferences
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      onClick={() => {
+                        resetForm(initialValues as Partial<FormikState<UserPreferencesType>>);
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </FormContainer>
         </div>
       </div>
     </div>

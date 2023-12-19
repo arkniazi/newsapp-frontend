@@ -6,6 +6,7 @@ import { updateUserProfile } from '../../setup/redux/actions/authAction';
 import { Button } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
 import { RootState, UpdateProfileValues } from '../../setup/redux/types/actionTypes';
+import { FormContainer } from '../auth/styled';
 
 //@ts-ignore
 const UserProfile = ({ user, updateUserProfile, loading }) => {
@@ -39,35 +40,37 @@ const UserProfile = ({ user, updateUserProfile, loading }) => {
   return (
     <div className="container">
       <Loader loading={loading} />
-      <h2>User Profile</h2>
       <div className="row justify-content-center align-items-center">
         <div className="col-md-4 text-start">
-          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-            {({ resetForm }) => (
-              <Form>
-                <FormField label="Name" name="name" type="text" />
-                <FormField label="Email" name="email" type="email" />
-                <FormField label="Old Password" name="current_password" type="password" />
-                <FormField label="New Password" name="new_password" type="password" />
-                <FormField label="Confirm New Password" name="confirm_new_password" type="password" />
+          <FormContainer>
+            <h2>User Profile</h2>
+            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+              {({ resetForm }) => (
+                <Form>
+                  <FormField label="Name" name="name" type="text" />
+                  <FormField label="Email" name="email" type="email" />
+                  <FormField label="Old Password" name="current_password" type="password" />
+                  <FormField label="New Password" name="new_password" type="password" />
+                  <FormField label="Confirm New Password" name="confirm_new_password" type="password" />
 
-                <div className="d-flex flex-row justify-content-between">
-                  <Button type="submit" variant="primary">
-                    Update Profile
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    onClick={() => {
-                      resetForm(initialValues as Partial<FormikState<UpdateProfileValues>>);
-                    }}
-                  >
-                    Cancel
-                  </Button>
-                </div>
-              </Form>
-            )}
-          </Formik>
+                  <div className="d-flex flex-row justify-content-between">
+                    <Button type="submit" variant="primary">
+                      Update Profile
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      onClick={() => {
+                        resetForm(initialValues as Partial<FormikState<UpdateProfileValues>>);
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </FormContainer>
         </div>
       </div>
     </div>

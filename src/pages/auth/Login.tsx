@@ -44,7 +44,6 @@ const LoginComponent: React.FC<LoginComponentProps> = ({ login }) => {
        navigate('/');
      }
     } catch (error) {
-      // Handle any errors or display a message
     } finally {
       actions.setSubmitting(false);
     }

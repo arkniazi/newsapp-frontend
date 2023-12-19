@@ -8,6 +8,7 @@ export const AuthPageStyled = styled.div`
 `
 
 export const FormContainer = styled.div`
+  background: #fff;
   max-width: 400px;
   margin: auto;
   padding: 20px;
